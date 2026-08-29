@@ -7,9 +7,9 @@
 # iso_url points straight at Omarchy's own official host -- confirmed it
 # serves the whole, unmodified ISO with proper Range support (Accept-Ranges,
 # real 206/Content-Range replies), so there's no reason to re-host that
-# ~6GB file ourselves. repo_base is real static hosting too now (GitHub
-# Pages, lagsoftware.com/files). base (kernel/initrd) is the one piece
-# still not on real hosting -- see the TODO below.
+# ~6GB file ourselves. repo_base is real static hosting too (GitHub Pages,
+# lagsoftware.com/files), and base (kernel/initrd) is now a GitHub Release
+# -- see below. Nothing here depends on any machine of ours staying on.
 #
 # Whichever ISO version iso_url points at, base's vmlinuz/initrd MUST be
 # extracted from that *exact same* build. Confirmed the hard way: a
@@ -19,10 +19,11 @@
 # (dm_mod/other modules for the running kernel don't exist in the squashfs
 # at all). Re-extract and re-host base whenever iso_url's version changes.
 #
-# TODO: base still points at a local nginx (see ../hosting/) -- the
-# extracted vmlinuz+initrd haven't moved to real hosting yet. initrd alone
-# is ~250MB, over GitHub's 100MB hard per-file push limit, so it can't just
-# join repo_base on lagsite the way the small files below did.
+# base's vmlinuz/initrd (~250MB combined -- over GitHub's 100MB hard
+# per-file *push* limit, so these couldn't just join repo_base on lagsite
+# the way the small files did) live as GitHub Release assets instead --
+# confirmed Range support the same way as iso_url (real 206/Content-Range,
+# backed by Azure Blob under the hood despite the github.com URL).
 #
 # Only two things get injected into the base initramfs, both from this
 # repo:
@@ -36,7 +37,7 @@
 # to RAM -- confirmed against the actual archiso_pxe_nbd source that this
 # is respected, not overridden the way the HTTP hook forces it.
 
-set base http://10.0.0.103:8080/boot/
+set base https://github.com/logangeorge01/lagsite/releases/download/omarchy-4.0.0-boot/
 set repo_base https://lagsoftware.com/files
 set iso_url https://iso.omarchy.org/omarchy-4.0.0.iso
 

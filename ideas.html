@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Logan George</title>
+  <style>
+    body {
+      max-width: 750px;
+      margin: 5% 10%;
+      font-size: 1.4em;
+      line-height: 1.4;
+    }
+    img { width: 300px; max-width: 100%; height: auto; }
+    .item { margin-top: 40px; }
+    .ideas { font-size: 0.8em; }
+    .ideas p { margin: 0 0 12px; }
+
+    @media (max-width: 600px) {
+      body { margin: 24px 20px; font-size: 1.15em; }
+      img { width: 100%; }
+      .item { margin-top: 24px; }
+      .ideas p { margin-bottom: 16px; }
+    }
+  </style>
 </head>
-<html>
-   <body style="margin-left:10%;margin-top:5%;font-size:1.4em;">
-      <img width="25%" src="./hillpath.jpg"/>
-      <div style="margin-top:40px">My Ideas and My (In)action</div>
-      <div style="margin-top:40px;font-size:.8em">
-         2019 - Built Mosh, a collaborative music queue. 2023 - Spotify Jam released.<br>
-         2021 - Pitched FreeFlow, AI for traffic lights, at a college pitch competition. 2024 - XTrafficAI (YC S24).<br>
-         2022 - Built Fibre, a personalized clothes shopping app. Pitched to Dorm Room Fund. 2024 - Style-><a href="https://apps.apple.com/us/app/gold-the-best-deals-daily/id6445965976">GOLD</a>.<br>
-      </div>
-   </body>
+<body>
+  <img src="./hillpath.jpg" alt="Hill path painting">
+  <div class="item">My Ideas and My (In)action</div>
+  <div class="item ideas">
+    <p>2019 - Built Mosh, a collaborative music queue. 2023 - Spotify Jam released.</p>
+    <p>2021 - Pitched FreeFlow, AI for traffic lights, at a college pitch competition. 2024 - XTrafficAI (YC S24).</p>
+    <p>2022 - Built Fibre, a personalized clothes shopping app. Pitched to Dorm Room Fund. 2024 - Style-&gt;<a href="https://apps.apple.com/us/app/gold-the-best-deals-daily/id6445965976">GOLD</a>.</p>
+  </div>
+</body>
 </html>
